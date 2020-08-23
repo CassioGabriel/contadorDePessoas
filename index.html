@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        lerDados = {
+            num: function(){
+                let num1 = n1.value;
+                return parseFloat(num1)
+            }
+        }
+        var cRI = 0;
+        var aDO = 0;
+        var aDUL = 0;
+        var iDO = 0;
+        classificar = {
+            crian: function(){
+                
+                let n3 = lerDados.num();
+                if(cRI == 0 && n3 <= 14 ){
+                    cRI = 1;
+                    return cRI
+                }else if(cRI >= 1 && n3 <= 14 ){
+                    cRI = ++cRI;
+                    return cRI;
+                }
+            },
+            adole: function(){
+                let n3 = lerDados.num();
+                if( aDO == 0 && n3 >= 15 && n3 <= 17){
+                    aDO = 1;
+                    return aDO
+                }else if(aDO >= 1 && n3 >= 15 && n3 <= 17){
+                    aDO = ++aDO;
+                    return aDO;
+                }
+            },
+            adult: function(){
+                let n3 = lerDados.num();
+                if(aDUL == 0 && n3 >= 18 && n3 <= 60){
+                    aDUL = 1;
+                    return aDUL
+                }else if(n3 >= 18 && n3 <= 60){
+                    aDUL = ++aDUL;
+                    return aDUL;
+                }
+            },
+            idos: function(){
+                let n3 = lerDados.num();
+                if(iDO == 0 && n3 >= 61){
+                    iDO = 1;
+                    return iDO
+                }else if(iDO >= 1 && n3 >= 61){
+                    iDO = ++iDO;
+                    return iDO;
+                }
+            }
+        }
+        
+        exibir = {
+            exi: function(){
+                let n3 = lerDados.num();
+                let saida = classificar;
+                if(n3 <= 14){
+                    document.getElementById("cri").innerText = saida.crian();
+                }else if(n3 >= 15 && n3 <= 17){
+                    document.getElementById("ado").innerText = saida.adole();
+                }else if(n3 >= 18 && n3 <= 60){
+                    document.getElementById("adu").innerText = saida.adult();
+                }else if(n3 >= 61){
+                    document.getElementById("ido").innerText = saida.idos();
+                }
+            }
+        }
+        function clas(){
+            exibir.exi();
+        }
+    </script>
+</head>
+<body>
+    <center>
+        <div><h1>Contador de Pessoas</h1></div>
+    <div><input id="n1" type="number" placeholder="Digite sua idade"/></div>
+    <br>
+    <div><button id="n2" onclick="clas()">Contar</button></div>
+    <br>
+    <div><h3>Criancas</h3>
+    <output id="cri"></output></div>
+
+    <div><h3>Adolecentes</h3></div>
+    <output id="ado"></output></div>
+
+    <div><h3>Adulto</h3></div>
+    <output id="adu"></output></div>
+
+    <div><h3>Idoso</h3></div>
+    <output id="ido"></output></div>
+    </center>
+</body>
+</html>
